@@ -2,7 +2,7 @@
 
 require("includes/common.php");
 
-$email = $_POST['e-mail'];
+$email = $_POST['email'];
 $email = mysqli_real_escape_string($con, $email);
 $password = $_POST['password'];
 $password = mysqli_real_escape_string($con, $password);
@@ -14,7 +14,7 @@ $result = mysqli_query($con, $query)or die($mysqli_error($con));
 $num = mysqli_num_rows($result);
 // If the email and password are not present in the database, the mysqli_num_rows returns 0, it is assigned to $num.
 if ($num == 0) {
-  $error = $$_GET['error'];
+  $error = $_GET['error'];
   $error = "<span class='red'>Enter Correct E-mail and Password Combination</span>";
   header('location: login.php?error=' . $error);
 } else {
